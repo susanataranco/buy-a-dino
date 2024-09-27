@@ -5,6 +5,7 @@ import NextTopLoader from "nextjs-toploader";
 import {
   ClerkProvider
 } from '@clerk/nextjs';
+import { Toaster } from "@/components/ui/toaster"
 
 const outfit = Outfit({ subsets: ["latin"] });
 export const metadata: Metadata = {
@@ -23,6 +24,7 @@ export default function RootLayout({
         <body className={outfit.className}>
           <NextTopLoader color="#000"></NextTopLoader>
           {children}
+          <Toaster />
         </body>
       </html>
     </ClerkProvider>

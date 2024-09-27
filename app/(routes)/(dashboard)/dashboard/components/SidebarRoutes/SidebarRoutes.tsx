@@ -2,6 +2,7 @@
 import { useAuth } from "@clerk/nextjs";
 import { dataGeneralSidebar } from "./SidebarRoutes.data";
 import SidebarItem from "./SidebarItem/SidebarItem";
+import { Separator } from "@/components/ui/separator";
 
 export default function SidebarRoutes() {
     const { userId } = useAuth();
@@ -15,6 +16,8 @@ export default function SidebarRoutes() {
                         <SidebarItem key={item.label} item={item} />
                     )}
                 </div>
+
+                <Separator></Separator>
             </div>
         </div>
     )
