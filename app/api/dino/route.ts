@@ -20,7 +20,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json(dino);
   } catch (error: unknown) {
-    console.error("Something went wrong", (error as Error).message);
+    console.error("[DINO]", (error as Error).message);
     return new NextResponse("Internal Server Error", { status: 500 });
   }
 }

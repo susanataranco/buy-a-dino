@@ -15,14 +15,14 @@ import {
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast"
-import { formSchema } from "./FormAddDino.form";
+import { formSchema } from "./FormEditDino.form";
 import { UploadButton } from "@/utils/uploadthing";
 import { useState } from "react";
-import { FormAddDinoProps } from "./FormAddDino.types";
+import { FormEditDinoProps } from "./FormEditDino.types";
 import { useRouter } from "next/navigation";
 
-export default function FormAddDino(props: FormAddDinoProps) {
-    const { setOpenDialog } = props;
+export default function FormEditDino(props: FormEditDinoProps) {
+    const {dinoData, setOpenDialog} = props;
     const [photoUploaded, setPhotoUploaded] = useState(false);
     const router = useRouter();
     const { toast } = useToast();
@@ -31,24 +31,23 @@ export default function FormAddDino(props: FormAddDinoProps) {
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
-            name: "",
-            species: "",
-            photo: "",
-            price: "",
-            description: "",
-            period: "",
-            foundIn: "",
-            isPublished: false,
+            name: dinoData?.name,
+            species: dinoData?.species,
+            photo: dinoData?.photo,
+            price: dinoData?.price,
+            description: dinoData?.description,
+            period: dinoData?.period,
+            foundIn: dinoData?.foundIn,
+            isPublished: dinoData?.isPublished || false,
         },
     })
- 
-    // 2. Define a submit handler.
+
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         setOpenDialog(false);
         try {
-            await axios.post("/api/dino", values);
+            await axios.patch(`/api/dino/${dinoData.id}/form`, values);
             toast({
-                title: "Dino created successfully 🦕"
+                title: "Dino updated 🦕"
             });
             router.refresh();
         } catch (error: unknown) {
@@ -180,7 +179,7 @@ export default function FormAddDino(props: FormAddDinoProps) {
                         )}
                     />
                 </div>
-                <Button type="submit" className="m-full mt-5" disabled={!isValid}>Create Dino</Button>
+                <Button type="submit" className="m-full mt-5" disabled={!isValid}>Edit Dino</Button>
             </form>
         </Form>
     )
