@@ -12,11 +12,11 @@ import { PlusCircle } from "lucide-react";
 import { useState } from "react";
 import FormAddDino from "../FormAddDino/FormAddDino";
 
-export default function ButtonAddCar() {
+export default function ButtonAddDino() {
   const [openDialog, setOpenDialog] = useState(false);
 
   return (
-      <Dialog open={openDialog}>
+      <Dialog open={openDialog} onOpenChange={setOpenDialog}>
         <DialogTrigger asChild>
           <Button variant="outline" onClick={() => setOpenDialog(true)}>
             Add new Dino

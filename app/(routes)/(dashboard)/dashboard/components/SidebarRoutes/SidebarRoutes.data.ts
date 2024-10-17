@@ -21,7 +21,7 @@ export const dataGeneralSidebar = [
 export const dataAdminSidebar = [
     {
         icon: SquareGanttChart,
-        label: "Manage your Dinos",
+        label: "Manage Dinos",
         href: "/dashboard/admin/dinos-manager"
     },
     {

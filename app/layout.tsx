@@ -9,7 +9,7 @@ import { Toaster } from "@/components/ui/toaster"
 
 const outfit = Outfit({ subsets: ["latin"] });
 export const metadata: Metadata = {
-  title: "Buy a dino",
+  title: "Book a dino",
   description: "Your must go to",
 };
 

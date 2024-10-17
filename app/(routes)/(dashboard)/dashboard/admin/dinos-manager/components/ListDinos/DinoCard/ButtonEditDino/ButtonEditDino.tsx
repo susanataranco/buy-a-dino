@@ -11,7 +11,7 @@ export default function ButtonEditDino(props: ButtonEditDinoProps) {
     const [openDialog, setOpenDialog] = useState(false);
 
     return (
-        <Dialog open={openDialog}>
+        <Dialog open={openDialog} onOpenChange={setOpenDialog}>
             <DialogTrigger asChild>
                 <Button variant="outline" onClick={() => setOpenDialog(true)}>
                     Edit Dino
