@@ -13,9 +13,7 @@ const corsHeaders = {
 
 export async function POST(
   req: Request,
-  {
-    params,
-  }: {
+  {}: {
     params: {
       dinoId: string;
       price: string;
