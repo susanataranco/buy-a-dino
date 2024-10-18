@@ -4,7 +4,7 @@ import { useAuth, UserButton } from "@clerk/nextjs";
 import { Heart, User } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "react-day-picker";
+import { Button } from "@/components/ui/button";
 
 export default function Navbar() {
     const {userId} = useAuth();
