@@ -14,6 +14,7 @@ import {
 import { CalendarSelectorProps } from "./CalendarSelector.types";
 import { cn } from "@/lib/utils";
 import { formatCurrency } from "@/utils/formatCurrency";
+import { DayPickerProvider } from 'react-day-picker';
 
 export default function CalendarSelector(props: CalendarSelectorProps) {
     const {setDateSelected, className, dinoPriceDay} = props;
@@ -63,16 +64,18 @@ export default function CalendarSelector(props: CalendarSelectorProps) {
                     </PopoverTrigger>
 
                     <PopoverContent className="w-auto p-0 z-50" align="start">
-                        <div onClick={(e) => e.stopPropagation()} style={{ pointerEvents: 'auto' }}>
-                            <Calendar
-                                initialFocus
-                                mode="range"
-                                defaultMonth={date?.from}
-                                selected={date}
-                                onSelect={setDate}
-                                numberOfMonths={2}
-                            />
-                        </div>
+                        <DayPickerProvider initialProps={{ mode: "range", defaultMonth: date?.from, selected: date, numberOfMonths: 2 }}>
+                            <div onClick={(e) => e.stopPropagation()} style={{ pointerEvents: 'auto' }}>
+                                <Calendar
+                                    initialFocus
+                                    mode="range"
+                                    defaultMonth={date?.from}
+                                    selected={date}
+                                    onSelect={setDate}
+                                    numberOfMonths={2}
+                                />
+                            </div>
+                        </DayPickerProvider>
                     </PopoverContent>
                 </Popover>
             </div>
