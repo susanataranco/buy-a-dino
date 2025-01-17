@@ -1,4 +1,4 @@
-This project is deployed using Vercel, you can check it here: [Buy a dino]([https://nextjs.org](https://buy-a-dino-cr90dsgfi-susanatarancos-projects.vercel.app/))
+This project is deployed using Vercel, you can check it here: [Buy a dino]([https://nextjs.org](https://buy-a-dino-cr90dsgfi-susanatarancos-projects.vercel.app/)
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
